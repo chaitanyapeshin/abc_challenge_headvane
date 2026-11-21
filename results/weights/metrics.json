@@ -1,0 +1,207 @@
+{
+  "model": "Transformer",
+  "data": {
+    "files": 13364,
+    "train_chunks": 1764897,
+    "train_hours": 1078.5481666666667,
+    "train_users": 10677,
+    "val_users": 1357,
+    "test_users": 1330,
+    "val_windows": 47495,
+    "test_windows": 46474
+  },
+  "results": {
+    "val": {
+      "last observation": {
+        "mean_200ms": 6.6254706382751465,
+        "mean_100ms": 3.7942094802856445,
+        "median_200ms": 5.085209846496582,
+        "p95_200ms": 16.921348571777344,
+        "mean_all_horizons": 3.804093599319458,
+        "vs_constant_velocity_pct": -10.531350815967444
+      },
+      "constant velocity": {
+        "mean_200ms": 7.4053544998168945,
+        "mean_100ms": 3.1851885318756104,
+        "median_200ms": 5.647243022918701,
+        "p95_200ms": 19.200275421142578,
+        "mean_all_horizons": 3.4955637454986572,
+        "vs_constant_velocity_pct": 0.0
+      },
+      "damped CV": {
+        "mean_200ms": 5.55560302734375,
+        "mean_100ms": 2.756728410720825,
+        "median_200ms": 4.337602138519287,
+        "p95_200ms": 14.00175952911377,
+        "mean_all_horizons": 2.8556556701660156,
+        "vs_constant_velocity_pct": -24.97856750164873
+      },
+      "Transformer (context 100)": {
+        "mean_200ms": 4.490787506103516,
+        "mean_100ms": 2.223888635635376,
+        "median_200ms": 3.5618438720703125,
+        "p95_200ms": 11.042478561401367,
+        "mean_all_horizons": 2.2983145713806152,
+        "vs_constant_velocity_pct": -39.35756206924928
+      }
+    },
+    "test": {
+      "last observation": {
+        "mean_200ms": 6.617545127868652,
+        "mean_100ms": 3.7763636112213135,
+        "median_200ms": 5.093824863433838,
+        "p95_200ms": 16.814847946166992,
+        "mean_all_horizons": 3.7938735485076904,
+        "vs_constant_velocity_pct": -11.52124507311676
+      },
+      "constant velocity": {
+        "mean_200ms": 7.479247570037842,
+        "mean_100ms": 3.226329803466797,
+        "median_200ms": 5.709433078765869,
+        "p95_200ms": 19.193376541137695,
+        "mean_all_horizons": 3.5378775596618652,
+        "vs_constant_velocity_pct": 0.0
+      },
+      "damped CV": {
+        "mean_200ms": 5.584136486053467,
+        "mean_100ms": 2.7702577114105225,
+        "median_200ms": 4.3722968101501465,
+        "p95_200ms": 13.947957038879395,
+        "mean_all_horizons": 2.8718130588531494,
+        "vs_constant_velocity_pct": -25.3382585111404
+      },
+      "Transformer (context 100)": {
+        "mean_200ms": 4.517261981964111,
+        "mean_100ms": 2.237013816833496,
+        "median_200ms": 3.6072680950164795,
+        "p95_200ms": 11.092601776123047,
+        "mean_all_horizons": 2.3127925395965576,
+        "vs_constant_velocity_pct": -39.60272153497847
+      }
+    }
+  },
+  "bootstrap_test": [
+    {
+      "comparison": "last observation \u2212 Transformer (test)",
+      "ci95_low_deg": 2.039338305911891,
+      "ci95_high_deg": 2.16763389289315,
+      "significant": true
+    },
+    {
+      "comparison": "constant velocity \u2212 Transformer (test)",
+      "ci95_low_deg": 2.8642396555016036,
+      "ci95_high_deg": 3.0560592794804475,
+      "significant": true
+    },
+    {
+      "comparison": "damped CV \u2212 Transformer (test)",
+      "ci95_low_deg": 1.0278062432482233,
+      "ci95_high_deg": 1.1072497554561784,
+      "significant": true
+    }
+  ],
+  "by_regime_test": {
+    "share_%": {
+      "still <5\u00b0/s": 1.4481,
+      "slow 5\u201350": 67.5173,
+      "moving 50\u2013150": 28.9517,
+      "fast >150": 2.0829
+    },
+    "last observation": {
+      "still <5\u00b0/s": 2.1933999061584473,
+      "slow 5\u201350": 4.961599826812744,
+      "moving 50\u2013150": 9.668499946594238,
+      "fast >150": 20.963899612426758
+    },
+    "constant velocity": {
+      "still <5\u00b0/s": 2.179800033569336,
+      "slow 5\u201350": 5.241799831390381,
+      "moving 50\u2013150": 11.458800315856934,
+      "fast >150": 28.37470054626465
+    },
+    "damped CV": {
+      "still <5\u00b0/s": 2.1463000774383545,
+      "slow 5\u201350": 4.368599891662598,
+      "moving 50\u2013150": 7.810299873352051,
+      "fast >150": 16.43429946899414
+    },
+    "Transformer (context 100)": {
+      "still <5\u00b0/s": 1.9558000564575195,
+      "slow 5\u201350": 3.7604000568389893,
+      "moving 50\u2013150": 5.965000152587891,
+      "fast >150": 10.709600448608398
+    }
+  },
+  "efficiency": {
+    "parameters": 121892,
+    "macs_per_call": 2202344,
+    "context_samples": 100,
+    "onnx_ms_context_call": 0.29681622982025146,
+    "onnx_size_kb": 538.6708984375,
+    "onnx_ops": [
+      "Add",
+      "Concat",
+      "Constant",
+      "ConstantOfShape",
+      "Conv",
+      "Div",
+      "Equal",
+      "Erf",
+      "Expand",
+      "Gather",
+      "Gemm",
+      "LayerNormalization",
+      "MatMul",
+      "Mul",
+      "Pow",
+      "ReduceL2",
+      "ReduceSum",
+      "Reshape",
+      "ScatterND",
+      "Slice",
+      "Softmax",
+      "Split",
+      "Sqrt",
+      "Squeeze",
+      "Sub",
+      "Transpose",
+      "Unsqueeze",
+      "Where"
+    ],
+    "onnx_ops_outside_planning_doc_safe_list": [
+      "Constant",
+      "ConstantOfShape",
+      "Div",
+      "Equal",
+      "Erf",
+      "Expand",
+      "Gather",
+      "Pow",
+      "ReduceL2",
+      "ReduceSum",
+      "ScatterND",
+      "Softmax",
+      "Split",
+      "Sqrt",
+      "Squeeze",
+      "Sub",
+      "Transpose",
+      "Unsqueeze",
+      "Where"
+    ],
+    "macs_context_call": 2202344
+  },
+  "onnx_checks": {
+    "max_abs_diff_onnx_vs_torch": 1.1920928955078125e-07,
+    "onnx_mean_err20_first_test_windows": 4.808104038238525,
+    "torch_mean_err20_first_test_windows": 4.808101177215576,
+    "nan_or_inf": false,
+    "output_shape": [
+      20,
+      4
+    ],
+    "package_run_inference_ok": true,
+    "zip_size_mb": 0.45
+  },
+  "best_val_err20_small": 4.483742713928223
+}
